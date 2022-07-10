@@ -10,6 +10,11 @@ const customersRouter = require("./routes/customers");
 const moviesRouter = require("./routes/movies");
 const rentalRouter = require("./routes/rental");
 const usersRouter = require("./routes/users");
+const authRouter = require("./routes/auth");
+if (!config.get("jwt-webtoken")) {
+  console.error("FATAL error: jwt-webtoken is not defined");
+  process.exit(1);
+}
 
 const mongoose = require("mongoose");
 mongoose
@@ -31,7 +36,8 @@ app.use("/api/genres", genresRouter);
 app.use("/api/customers", customersRouter);
 app.use("/api/movies", moviesRouter);
 app.use("/api/rentals", rentalRouter);
-app.use("/api/home", usersRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/logins", authRouter);
 app.listen(3000, () => {
   console.log("Listening to port 3000");
 });

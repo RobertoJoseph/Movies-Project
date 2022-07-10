@@ -2,17 +2,17 @@ const { Genre, validate } = require("../models/genre");
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth");
 
 router.get("/", async (req, res) => {
   const genres = await Genre.find().sort("name");
   res.send(genres);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   let genre = new Genre({ name: req.body.name });
   console.log("This is genre" + genre);
   genre = await genre.save();
-
   res.send(genre);
 });
 
