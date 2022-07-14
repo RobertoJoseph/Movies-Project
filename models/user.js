@@ -18,9 +18,13 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  admin: Boolean,
 });
 userSchema.methods.generateAuthenToken = function () {
-  const token = jwt.sign({ _id: this._id }, config.get("jwt-webtoken"));
+  const token = jwt.sign(
+    { _id: this._id, admin: this.admin },
+    config.get("jwt-webtoken")
+  );
   return token;
 };
 
