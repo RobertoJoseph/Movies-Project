@@ -6,14 +6,13 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 
 router.get("/", async (req, res, next) => {
-  throw new Error("Could not load");
+  // throw new Error("Could not load");
   const genres = await Genre.find().sort("name");
   res.send(genres);
 });
 
 router.post("/", auth, async (req, res) => {
   let genre = new Genre({ name: req.body.name });
-  console.log("This is genre" + genre);
   genre = await genre.save();
   res.send(genre);
 });

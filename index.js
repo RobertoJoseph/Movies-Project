@@ -1,4 +1,5 @@
 require("express-async-errors");
+require("winston-mongodb");
 const winston = require("winston");
 const debug = require("debug")("app:startup");
 const config = require("config");
@@ -16,6 +17,20 @@ const authRouter = require("./routes/auth");
 const error = require("./middleware/error");
 const mongoose = require("mongoose");
 winston.add(new winston.transports.File({ filename: "logfile.log" }));
+winston.add(
+  new winston.transports.MongoDB({
+    db: "mongodb://127.0.0.1/V",
+    options: {
+      useUnifiedTopology: true,
+    },
+  })
+);
+
+winston.exceptions.handle(
+  new winston.transports.File({ filename: "execp.log" })
+);
+
+throw new Error("Something Cathc");
 if (!config.get("jwt-webtoken")) {
   console.error("FATAL error: jwt-webtoken is not defined");
   process.exit(1);
