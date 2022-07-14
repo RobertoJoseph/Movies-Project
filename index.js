@@ -1,3 +1,5 @@
+require("express-async-errors");
+const winston = require("winston");
 const debug = require("debug")("app:startup");
 const config = require("config");
 const morgan = require("morgan");
@@ -13,11 +15,11 @@ const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const error = require("./middleware/error");
 const mongoose = require("mongoose");
+winston.add(new winston.transports.File({ filename: "logfile.log" }));
 if (!config.get("jwt-webtoken")) {
   console.error("FATAL error: jwt-webtoken is not defined");
   process.exit(1);
 }
-
 
 mongoose
   .connect("mongodb://127.0.0.1/V")
