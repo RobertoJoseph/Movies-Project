@@ -15,7 +15,6 @@ router.post("/", async (req, res) => {
     return res.status(400).send(error.details[0].message);
   }
   let user = await User.findOne({ email: req.body.email });
-  console.log("user", user);
   if (user) return res.status(400).send("User already registerd");
   user = new User(_.pick(req.body, ["name", "email", "password"]));
   const salt = await bycrypt.genSalt(10);

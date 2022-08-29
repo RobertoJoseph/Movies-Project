@@ -12,6 +12,10 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error.details) {
+    return res.send(error.details[0].message); // Send the message from the error
+  }
   let genre = new Genre({ name: req.body.name });
   genre = await genre.save();
   res.send(genre);

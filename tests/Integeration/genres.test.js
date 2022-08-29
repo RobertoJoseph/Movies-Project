@@ -1,6 +1,8 @@
-const { default: mongoose } = require("mongoose");
+const { before } = require("lodash");
+const mongoose = require("mongoose");
 const request = require("supertest");
 const { Genre } = require("../../models/genre");
+const { User } = require("../../models/user");
 let server;
 
 describe("/api/generes", () => {
@@ -8,7 +10,7 @@ describe("/api/generes", () => {
     server = require("../../index.js");
   });
   afterEach(async () => {
-    server.close();
+     server.close();
     await Genre.remove({});
   });
 
@@ -16,7 +18,6 @@ describe("/api/generes", () => {
     it("get all genres", async () => {
       await Genre.collection.insertMany([{ name: "7amada" }, { name: "yel3" }]);
       const res = await request(server).get("/api/genres");
-      console.log(res.body);
       expect(res.status).toBe(200);
       expect(res.body.length).toBe(2);
       expect(res.body.some((g) => g.name === "7amada")).toBeTruthy();
@@ -33,6 +34,39 @@ describe("/api/generes", () => {
     it("should return 404 with id if is not valid", async () => {
       const res = await request(server).get("/api/genres/1}");
       expect(res.status).toBe(404);
+    });
+  });
+
+  describe("POST", () => {
+    let token = "";
+    const exec = async () => {
+      return await request(server)
+        .post("/api/genres")
+        .send({ name: "genr1e" })
+        .set("x-auth-token", token);
+    };
+
+    beforeEach(() => {
+      token = new User().generateAuthenToken();
+    });
+
+    it("should return 401 if user is not logged in", async () => {
+      token = "";
+      const res = await exec();
+      expect(res.status).toBe(401);
+    });
+
+    it("should return 200 if its valid ", async () => {
+      // const name = new Array(52).join("a");
+      await exec();
+      const genre = await Genre.find({ name: "genre1" });
+      expect(genre).not.toBeNull();
+    });
+    it("should return the genre if its valid ", async () => {
+      // const name = new Array(52).join("a");
+      const res = await exec();
+      expect(res.status).toBe(200);
+      expect(res.body).toHaveProperty("name", "genr1e");
     });
   });
 });

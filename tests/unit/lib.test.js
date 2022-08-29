@@ -1,6 +1,6 @@
 
 const { default: mongoose } = require('mongoose');
-const {User} = require('../models/user')
+const {User} = require('../../models/user')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 describe('jwtToken',()=>{
@@ -9,7 +9,6 @@ describe('jwtToken',()=>{
         const user = new User(payload);
         const token = user.generateAuthenToken();
         const decodded = jwt.verify(token, config.get("jwt-webtoken"));
-        console.log(decodded);
         expect(decodded).toMatchObject(payload);
     })
     
