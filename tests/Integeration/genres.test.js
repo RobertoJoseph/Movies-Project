@@ -1,4 +1,3 @@
-const { before } = require("lodash");
 const mongoose = require("mongoose");
 const request = require("supertest");
 const { Genre } = require("../../models/genre");
@@ -10,8 +9,8 @@ describe("/api/generes", () => {
     server = require("../../index.js");
   });
   afterEach(async () => {
-     server.close();
     await Genre.remove({});
+    await server.close();
   });
 
   describe("GET /", () => {
@@ -67,6 +66,15 @@ describe("/api/generes", () => {
       const res = await exec();
       expect(res.status).toBe(200);
       expect(res.body).toHaveProperty("name", "genr1e");
+    });
+  });
+
+  describe("/PUT", () => {
+    let id;
+    it("should return 404 if ID not found", async () => {
+      id = 1;
+      const res = await request(server).put("/api/genres/" + id);
+      expect(res.status).toBe(404);
     });
   });
 });

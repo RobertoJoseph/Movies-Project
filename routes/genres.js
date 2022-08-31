@@ -21,7 +21,8 @@ router.post("/", auth, async (req, res) => {
   res.send(genre);
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", validateObjectId, async (req, res) => {
+  console.log("ID", req.params.id);
   const genre = await Genre.findByIdAndUpdate(
     req.params.id,
     { name: req.body.name },

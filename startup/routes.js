@@ -5,6 +5,7 @@ const rentalRouter = require("../routes/rental");
 const usersRouter = require("../routes/users");
 const authRouter = require("../routes/auth");
 const error = require("../middleware/error"); //Asyncing middleWare is the job
+const returns = require("../routes/returns");
 module.exports = function (app) {
   app.use("/api/genres", genresRouter);
   app.use("/api/customers", customersRouter);
@@ -12,6 +13,6 @@ module.exports = function (app) {
   app.use("/api/rentals", rentalRouter);
   app.use("/api/users", usersRouter);
   app.use("/api/logins", authRouter);
+  app.use("/api/returns", returns);
   app.use(error);
 };
-
