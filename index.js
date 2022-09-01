@@ -10,6 +10,7 @@ require("./startup/logging")();
 require("./startup/routes")(app);
 require("./startup/mongo")();
 require("./startup/config")();
+require("./startup/prod")(app);
 
 const server = app.listen(3000, () => {
   console.log("Listening to port 3000");
