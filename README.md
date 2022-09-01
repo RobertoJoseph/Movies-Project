@@ -1,5 +1,15 @@
 # Nodejs Project
 
+
+
+
+### Roadmap
+---
+*  [Introduction](https://github.com/RobertoJoseph/node-wMosh#introduction "Named link title")
+*  [Key Features](https://github.com/RobertoJoseph/node-wMosh#key-features "Named link title")
+*  [Technologies used](https://github.com/RobertoJoseph/node-wMosh#technologies-used "Named link title")
+
+
 ### Introduction
 ---
 This is a course project I've been working on. A Backend project made using (Express, Nodejs, MongoDB). With this application you can do all the CRUD operations on all the given models user/customer/movie/genre/rental. You start by sign up as a user and there is a validation token (JWT) generated for you. You can access all the other operations using only this JWT
@@ -44,15 +54,15 @@ Open the terminal inside your project
 export vidly_jwtwebtoken= 1234
 export vidly_db= your URL connection
 ```
-#### Here is the endpoints you can test in postman --> BaseURL ```https://arcane-chamber-39243.herokuapp.com/```
+#### Here is the endpoints you can test in postman --> BaseURL `https://arcane-chamber-39243.herokuapp.com/`
 * POST new User ```api/users```.
 * POST new Genre ```api/genres```.
 * PUT genre ```api/genres/:id```.
 * DELETE genre ```api/genres/:id```.
 * GET genre ```api/genres/:id```.
 
-` You can test all models using the same concept as ex for movies we can use ```api/movies``` `
+> You can test all models using the same concept as ex for movies we can use ```api/movies```
 
 
-~~HEHEH~~
+
 
