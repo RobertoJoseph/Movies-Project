@@ -1,3 +1,6 @@
 {
-  "jwt-webtoken": "vidly_jwtwebtoken"
+  "jwt-webtoken": "vidly_jwtwebtoken",
+  "db": "vidly_db"
+
+  
 }
