@@ -1,4 +1,4 @@
-# Nodejs Project
+# Movies Project
 
 ### Built with (MongoDB, Express, and NodeJS).
 
@@ -62,7 +62,7 @@ export vidly_db= your URL connection
 * DELETE genre ```api/genres/:id```.
 * GET genre ```api/genres/:id```.
 
-> You can test all models using the same concept as ex for movies we can use ```api/movies```
+> You can test all models using the same concept for movies we can use ```api/movies```
 
 
 
