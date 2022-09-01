@@ -35,7 +35,7 @@ Database
 In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
  * Open the project in your prefered code editor.
  * Go to terminal -> New terminal (If you are using VS code)
- * run the server using ```node index.js```
+ * Run the server using ```node index.js```
 
 Open the terminal inside your project
  * Set the following env variables to
@@ -44,3 +44,9 @@ Open the terminal inside your project
 export vidly_jwtwebtoken= 1234
 export vidly_db= your URL connection
 ```
+### Here is the endpoints you can test in postman
+** BaseURL ```https://arcane-chamber-39243.herokuapp.com/```
+* POST new User ```api/users```.
+* POST new Genre ```api/genres```.
+* PUT existing genre ```api/genres```.
+
