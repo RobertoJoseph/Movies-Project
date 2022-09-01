@@ -54,6 +54,6 @@ export vidly_db= your URL connection
 > You can test all models using the same concept as ex for movies we can use ```api/movies```
 
 
-
+~~ yoo ~~ 
 
 
