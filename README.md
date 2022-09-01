@@ -1,5 +1,7 @@
 # Nodejs Project
 
+### Built with (MongoDB, Express, and NodeJS).
+![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/67745591/185786916-a0960afa-7911-4aee-a854-75bb2cbe86be.gif)
 
 
 
@@ -12,17 +14,17 @@
 
 ### Introduction
 ---
-This is a course project I've been working on. A Backend project made using (Express, Nodejs, MongoDB). With this application you can do all the CRUD operations on all the given models user/customer/movie/genre/rental. You start by sign up as a user and there is a validation token (JWT) generated for you. You can access all the other operations using only this JWT
+This is a course project I've been working on. A Backend project made using (Express, Nodejs, and MongoDB). With this application, you can do all the CRUD operations on all the given model's user/customer/movie/genre/rental. You start by signing up as a user and there is a validation token (JWT) generated for you. You can access all the other operations using only this JWT
 
 
 ### Key Features
 ---
 * Create/Update/Delete user/customer/movie/genre/rental
-* Multiple user registeration
+* Multiple user registration
 * Authentication and protecting routes using (JWT) in middlewares
 * Encrypting password using (Bcrypt)
 * Validation of input using (Joi)
-* Unit, Integeration and TDD testing applied using (Jest,Supertest)
+* Unit, Integration, and TDD testing applied using (Jest, Supertest)
 * Using (Compression) and (Helmet) in preparing the application for deployment
 
 ### Technologies used
@@ -42,8 +44,8 @@ Database
 
 ### Configuration and Setup
 
-In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
- * Open the project in your prefered code editor.
+In order to run this project locally, simply fork and clone the repository or download it as zipping and unzip it on your machine.
+ * Open the project in your preferred code editor.
  * Go to terminal -> New terminal (If you are using VS code)
  * Run the server using ```node index.js```
 
