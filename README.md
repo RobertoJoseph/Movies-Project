@@ -44,7 +44,7 @@ Open the terminal inside your project
 export vidly_jwtwebtoken= 1234
 export vidly_db= your URL connection
 ```
-> Here is the endpoints you can test in postmanBaseURL ```https://arcane-chamber-39243.herokuapp.com/```
+### Here is the endpoints you can test in postmanBaseURL ```https://arcane-chamber-39243.herokuapp.com/```
 > POST new User ```api/users```.
 > POST new Genre ```api/genres```.
 > PUT genre ```api/genres/:id```.
